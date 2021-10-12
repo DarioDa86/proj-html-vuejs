@@ -1,17 +1,19 @@
 <template>
-        <div class="block-user">
-            <div class="info-user">
-                <img class="img-users" src="../assets/img/avatar_io.jpg" alt="">
-                <div class="normal-text">
-                    Nome Utente
+        <header>
+            <div class="actual-user">
+                <div class="info-user">
+                    <img class="img-users" src="../assets/img/avatar_io.jpg" alt="">
+                    <div class="normal-text">
+                        Nome Utente
+                </div>
+                </div>
+                <div class="icons">
+                    <font-awesome-icon class="icon" icon="search" />
+                    <font-awesome-icon class="icon" icon="paperclip" />
+                    <font-awesome-icon class="icon" icon="ellipsis-v" />
                 </div>
             </div>
-            <div class="icons">
-                <font-awesome-icon class="icon" icon="search" />
-                <font-awesome-icon class="icon" icon="paperclip" />
-                <font-awesome-icon class="icon" icon="ellipsis-v" />
-            </div>
-        </div>
+        </header>
 </template>
 
 <script>
@@ -20,10 +22,30 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "../style/common.scss";
 
-.block-user {
-    width: 70%;
+header {
+
+
+    .actual-user, .info-user {
+        background-color: $bg-grey;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .icons {
+            color: $color-icons;
+            display: inline-block;
+            font-size: 20px;
+            margin-right: 10px;
+            
+            .icon {
+                margin-right: 10px;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 </style>

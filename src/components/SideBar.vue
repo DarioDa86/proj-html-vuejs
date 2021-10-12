@@ -1,5 +1,5 @@
 <template>
-    <div class="Left-col">
+    <div class="sidebar">
     <!-- Block User -->
         <div class="block-user">
             <div class="info-user">
@@ -37,15 +37,12 @@
         <ul class="contacts">
             <li class="single-user" v-for="(user, index) in contacts" :key="index">
                 <div class="user-img">
-                    <img :src="`../assets/img/avatar${user.avatar}.jpg`" :alt="user.avatar">
+                    <img :src="require(`../assets/img/avatar${user.avatar}.jpg`)" :alt="user.avatar">
                 </div>
-                <div class="user-name">
+                <div class="user-name normal-text">
                     {{user.name}}
                 </div>
             </li>
-            <div>
-                <img src="../assets/img/avatar_1.jpg" alt="">
-            </div>
         </ul>
     <!-- /Contacts -->
 
@@ -143,59 +140,75 @@ export default {
             }
 
         }
-        </script>
+</script>
 
-        <style lang="scss">
+<style lang="scss">
+@import "../style/common.scss";
 
-        .Left-col {
-            width: 30%;
-            
-            .block-user {
-                border-right: 1px solid #b1b1b1;
+.sidebar {
+    width: 30%;
+    background-color: #fff;
+    
+    .block-user {
+        border-right: 1px solid #b1b1b1;
+    }
+
+    .block-notifications {
+        background-color: #8edafc;
+        display: flex;
+        align-items: center;
+
+        .icon{
+            color: #8edafc;
+            background-color: #f2fbff;
+            font-size: 35px;
+            border-radius: 50%;
+            margin: 15px 5px 15px 15px;
+            padding: 4px 0;
+            cursor: pointer;
+        }
+    }
+    
+    .block-search-user {
+        display: flex;
+        align-items: center;
+        background-color: #fafafa;
+
+        
+        .icon-search {
+            padding: 8px;
+            font-size: 38px;
+            color: #b1b1b1;
+            background-color: #fff;
+            border: 1px solid #e9ebeb;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        input{
+            display: flex;
+            width: 100%;
+            flex-grow: 1;
+            margin: 5px 5px 5px 0;
+            padding: 10px;
+            border: 1px solid #e9ebeb;
+        }
+    }
+
+    .contacts {
+        overflow: hidden;
+
+        .single-user{
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ebeb;
+
+            img{
+                height: 50px;
+                margin: 0 10px;
+                border-radius: 50%;
             }
-
-            .block-notifications {
-                background-color: #8edafc;
-                display: flex;
-                align-items: center;
-
-                .icon{
-                    color: #8edafc;
-                    background-color: #f2fbff;
-                    font-size: 35px;
-                    border-radius: 50%;
-                    margin: 15px 5px 15px 15px;
-                    padding: 4px 0;
-                    cursor: pointer;
-                }
-            }
-            
-            .block-search-user {
-                display: flex;
-                align-items: center;
-                background-color: #fafafa;
-
-                
-                .icon-search {
-                    padding: 8px;
-                    font-size: 38px;
-                    color: #b1b1b1;
-                    background-color: #fff;
-                    border: 1px solid #e9ebeb;
-                    margin-left: 5px;
-                    cursor: pointer;
-                }
-                input{
-                    display: flex;
-                    width: 100%;
-                    flex-grow: 1;
-                    margin: 5px 5px 5px 0;
-                    padding: 10px;
-                    border: 1px solid #e9ebeb;
-                    // width: calc(100% - 5px);
-                }
-            }
+        }
+    }
 }
-
 
 </style>

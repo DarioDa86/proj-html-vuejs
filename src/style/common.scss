@@ -12,16 +12,24 @@
 }
 
 body {
-    background: linear-gradient(180deg, rgba(0,150,136,1) 100px, rgba(216,219,213,1) 5%);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 100px, rgba(216,219,213,1) calc(15% - 100px));
     height: 100vh;
+    padding-top: 30px;
+
     font-family: 'Lato', sans-serif;
     
     .container {
         width: 80%;
-        height: 500px;
-        margin: 60px auto;
-        border: 1px solid black;
+        height: 95%;
+        margin: 0px auto;
         display: flex;
+        
+        .right-col {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -32,10 +40,11 @@ body {
 }
 
 .block-user {
-    background-color: #eaeaea;
+    background-color: $bg-grey;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
     
     .info-user {
         display: flex;
@@ -45,7 +54,7 @@ body {
     .icons {
         color: $color-icons;
         display: inline-block;
-        font-size: 25px;
+        font-size: 20px;
         margin-right: 10px;
         
         .icon {
