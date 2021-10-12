@@ -1,0 +1,60 @@
+// Google Font
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+// Google Font/
+
+@import "./style/variables.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, rgba(0,150,136,1) 120px, rgba(216,219,213,1) 5%);
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    
+    .container {
+        width: 80%;
+        height: 500px;
+        margin: 60px auto;
+        border: 1px solid black;
+        display: flex;
+    }
+}
+
+.img-users{
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.block-user {
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .info-user {
+        display: flex;
+        align-items: center;
+    }
+
+    .icons {
+        color: #b1b1b1;
+        display: inline-block;
+        font-size: 25px;
+        margin-right: 10px;
+        
+        .icon {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+.normal-text {
+    font-weight: 700;
+}
