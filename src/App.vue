@@ -1,18 +1,18 @@
 <template>
   <div class="container">
-    <LeftSide/>
+    <SideBar/>
     <RightSide/>
   </div>
 </template>
 
 <script>
-import LeftSide from './components/LeftSide.vue'
+import SideBar from './components/SideBar.vue'
 import RightSide from './components/RightSide.vue'
 
 export default {
   name: 'App',
   components: {
-    LeftSide,
+    SideBar,
     RightSide
   }
 }

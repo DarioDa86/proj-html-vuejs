@@ -12,7 +12,7 @@
 }
 
 body {
-    background: linear-gradient(180deg, rgba(0,150,136,1) 120px, rgba(216,219,213,1) 5%);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 100px, rgba(216,219,213,1) 5%);
     height: 100vh;
     font-family: 'Lato', sans-serif;
     
@@ -43,7 +43,7 @@ body {
     }
 
     .icons {
-        color: #b1b1b1;
+        color: $color-icons;
         display: inline-block;
         font-size: 25px;
         margin-right: 10px;
