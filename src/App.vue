@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <SideBar/>
+    <SideBar @conversation="pastConversation"/>
     <div class="right-col">
       <RightSide/>
-      <Chatmsg/>
+      <Chatmsg :displayMsg ="oldMsg"/>
       <ChatText/>
     </div>
   </div>
@@ -22,6 +22,16 @@ export default {
     RightSide,
     Chatmsg,
     ChatText
+  },
+  data() {
+    return {
+      oldMsg: []
+    }
+  },
+  methods: {
+    pastConversation(item) {
+      this.oldMsg = item;
+    }
   }
 }
 </script>

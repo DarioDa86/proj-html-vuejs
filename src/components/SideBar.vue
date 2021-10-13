@@ -18,7 +18,7 @@
 
     <!-- Notifications -->
         <div class="block-notifications">
-                <font-awesome-icon class="icon" icon="bell-slash" />
+                <font-awesome-icon class="icon-bell" icon="bell-slash" />
             <div>
                 <p class="normal-text">Ricevi notifiche di nuovi messaggi</p>
                 <p class="text-not-desk">Attiva notifiche desktop</p>
@@ -35,7 +35,7 @@
 
     <!-- Contacts -->
         <ul class="contacts">
-            <li class="single-user" v-for="(user, index) in contacts" :key="index">
+            <li class="single-user" v-for="(user, index) in contacts" :key="index" :class="index == 0 ? 'active' : null" @click="viewConversation(index)">
                 <div class="user-img">
                     <img :src="require(`../assets/img/avatar${user.avatar}.jpg`)" :alt="user.avatar">
                 </div>
@@ -137,8 +137,12 @@ export default {
             },
         ]
                 }
-            }
-
+            },
+    methods: {
+        viewConversation(elm) {
+            this.$emit("conversation", this.contacts[elm].messages);
+        }
+    }
         }
 </script>
 
@@ -157,15 +161,15 @@ export default {
         background-color: #8edafc;
         display: flex;
         align-items: center;
+        height: 60px;
 
-        .icon{
+        .icon-bell {
             color: #8edafc;
             background-color: #f2fbff;
-            font-size: 35px;
+            font-size: 25px;
             border-radius: 50%;
-            margin: 15px 5px 15px 15px;
-            padding: 4px 0;
-            cursor: pointer;
+            margin: 15px 10px 15px 15px;
+            // padding: 11px 9px;
         }
     }
     
@@ -195,7 +199,8 @@ export default {
     }
 
     .contacts {
-        overflow: hidden;
+        overflow-y: auto;
+        
 
         .single-user{
             display: flex;
@@ -207,6 +212,9 @@ export default {
                 margin: 0 10px;
                 border-radius: 50%;
             }
+        }
+        .single-user.active{
+            background: lightgrey;
         }
     }
 }
