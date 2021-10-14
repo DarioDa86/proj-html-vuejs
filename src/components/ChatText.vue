@@ -1,14 +1,36 @@
 <template>
     <div class="chat-text-container">
         <font-awesome-icon class="icon" icon="smile" />
-        <input type="text" placeholder="Scrivi un messaggio" >
+        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMsg()">
         <font-awesome-icon class="icon" icon="microphone" />
     </div>
 </template>
 
 <script>
 export default {
-    name: 'ChatText'
+    name: 'ChatText',
+
+    methods: {
+
+        sendMsg() {
+            this.contacts[this.indexCurrentContact].messages.push({
+				
+				message: this.newMessage,
+				status: 'sent'
+			});
+			
+			this.newMessage = "";
+
+			setTimeout(() => {
+				this.contacts[this.indexCurrentContact].messages.push({
+					
+					message: 'ok',
+					status: 'recived'
+				});
+			}, 1000);
+		},
+        
+    }
 
 }
 </script>

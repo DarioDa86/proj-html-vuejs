@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <SideBar @conversation="pastConversation"/>
+    <SideBar @conversation="pastConversation" @actualUserImage ="imgUser"/>
     <div class="right-col">
-      <RightSide/>
+      <RightSide :displayImgUser ="actualUser"/>
       <Chatmsg :displayMsg ="oldMsg"/>
       <ChatText/>
     </div>
@@ -25,12 +25,17 @@ export default {
   },
   data() {
     return {
-      oldMsg: []
+      oldMsg: [],
+      actualUser: ""
+
     }
   },
   methods: {
     pastConversation(item) {
       this.oldMsg = item;
+    },
+    imgUser(elm) {
+      this.actualUser = elm;
     }
   }
 }

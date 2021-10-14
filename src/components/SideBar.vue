@@ -140,7 +140,8 @@ export default {
             },
     methods: {
         viewConversation(elm) {
-            this.$emit("conversation", this.contacts[elm].messages);
+            this.$emit("conversation", this.contacts[elm].messages),
+            this.$emit("actualUserImage", this.contacts[elm])
         }
     }
         }

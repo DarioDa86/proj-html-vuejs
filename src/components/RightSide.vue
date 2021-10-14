@@ -2,9 +2,9 @@
         <header>
             <div class="actual-user">
                 <div class="info-user">
-                    <img class="img-users" src="../assets/img/avatar_io.jpg" alt="">
+                    <img class="img-users" :src="require(`../assets/img/avatar${currentUser.avatar}.jpg`)" alt="prova">
                     <div class="normal-text">
-                        Nome Utente
+                        {{currentUser.name}}
                 </div>
                 </div>
                 <div class="icons">
@@ -18,7 +18,38 @@
 
 <script>
 export default {
-    name: 'RightSide'
+    name: 'RightSide',
+    props: ['displayImgUser'],
+    data() {
+        return {
+            currentUser: {
+                avatar:"",
+                name: ""
+            }
+        }
+    },
+    created() {
+        this.setBaseAvatar()
+    
+    },
+    watch: {
+        displayImgUser() {
+            this.currentUser= {
+                avatar:this.displayImgUser.avatar,
+                name:this.displayImgUser.name,
+            };
+        }
+    },
+    methods: {
+        setBaseAvatar: function() {
+            this.currentUser = {
+                name:"Michele",
+                avatar:"_1"
+            }
+            console.log("provaGianluca")
+        }
+    }
+
 }
 </script>
 
