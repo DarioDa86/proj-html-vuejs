@@ -1,20 +1,10 @@
 <template>
     <div class="chat-container">
-        <!-- <div class="sent-msg">
-            <div class="text-msg">
-                {{displayMsg}}
-                <div class="date-hour"></div>
-            </div>
-        </div>
-        <div class="msg">
-            <div class="text-msg">
-                
-                <div class="date-hour"></div>
-            </div>
-        </div> -->
+
         <ul>
             <li :class="[message.status == 'sent' ? 'msg sent-msg' : 'msg']" v-for="(message, index) in displayMsg" :key="index">
                 {{message.message}}
+                <div class="date-hour" >{{message.date}}</div>
             </li>
         </ul>
     </div>
@@ -51,6 +41,12 @@ export default {
     .sent-msg {
         background-color: $color-sent;
         margin-left: auto;
+    }
+
+    .date-hour {
+        font-size: 12px;
+        color: grey;
+        margin-top: 3px;
     }
 
 }

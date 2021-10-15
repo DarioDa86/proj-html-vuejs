@@ -3,8 +3,8 @@
     <SideBar @conversation="pastConversation" @actualUserImage ="imgUser"/>
     <div class="right-col">
       <RightSide :displayImgUser ="actualUser"/>
-      <Chatmsg :displayMsg ="oldMsg"/>
-      <ChatText/>
+      <Chatmsg :displayMsg ="oldMsg" :shotMsg ="msgSended"/>
+      <ChatText @newMsg="msgSend"/>
     </div>
   </div>
 </template>
@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       oldMsg: [],
-      actualUser: ""
-
+      actualUser: "",
+      shotMsg: ""
     }
   },
   methods: {
@@ -36,6 +36,9 @@ export default {
     },
     imgUser(elm) {
       this.actualUser = elm;
+    },
+    msgSend(string) {
+      this.shotMsg = string;
     }
   }
 }

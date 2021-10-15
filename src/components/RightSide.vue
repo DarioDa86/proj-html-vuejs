@@ -2,7 +2,7 @@
         <header>
             <div class="actual-user">
                 <div class="info-user">
-                    <img class="img-users" :src="require(`../assets/img/avatar${currentUser.avatar}.jpg`)" alt="prova">
+                    <img class="img-users" :src="require(`../assets/img/avatar${displayImgUser}.jpg`)" alt="prova">
                     <div class="normal-text">
                         {{currentUser.name}}
                 </div>
@@ -46,7 +46,7 @@ export default {
                 name:"Michele",
                 avatar:"_1"
             }
-            console.log("provaGianluca")
+
         }
     }
 

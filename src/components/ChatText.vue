@@ -1,7 +1,7 @@
 <template>
     <div class="chat-text-container">
         <font-awesome-icon class="icon" icon="smile" />
-        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMsg()">
+        <input type="text" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="sendMsg()">
         <font-awesome-icon class="icon" icon="microphone" />
     </div>
 </template>
@@ -9,28 +9,30 @@
 <script>
 export default {
     name: 'ChatText',
-
+    data() {
+        return {
+            newMsg: ""
+        }
+    },
     methods: {
 
         sendMsg() {
-            this.contacts[this.indexCurrentContact].messages.push({
-				
-				message: this.newMessage,
-				status: 'sent'
-			});
-			
-			this.newMessage = "";
+            this.$emit(this.newMsg)
 
-			setTimeout(() => {
-				this.contacts[this.indexCurrentContact].messages.push({
+			}
+			
+			
+
+			// setTimeout(() => {
+			// 	this.contacts[this.indexCurrentContact].messages.push({
 					
-					message: 'ok',
-					status: 'recived'
-				});
-			}, 1000);
-		},
-        
-    }
+			// 		message: 'ok',
+			// 		status: 'recived'
+			// 	});
+			// }, 
+            // 1000);
+	}
+
 
 }
 </script>

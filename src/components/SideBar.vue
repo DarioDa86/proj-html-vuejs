@@ -20,7 +20,7 @@
         <div class="block-notifications">
                 <font-awesome-icon class="icon-bell" icon="bell-slash" />
             <div>
-                <p class="normal-text">Ricevi notifiche di nuovi messaggi</p>
+                <p class="">Ricevi notifiche di nuovi messaggi</p>
                 <p class="text-not-desk">Attiva notifiche desktop</p>
             </div>
         </div>
@@ -29,13 +29,13 @@
     <!-- Search block -->
         <div class="block-search-user">
             <font-awesome-icon class="icon-search" icon="search"/>
-            <input type="text" placeholder="Cerca o inizia una nuova chat" >
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
         </div>
     <!-- /Search block -->
 
     <!-- Contacts -->
         <ul class="contacts">
-            <li class="single-user" v-for="(user, index) in contacts" :key="index" :class="index == 0 ? 'active' : null" @click="viewConversation(index)">
+            <li class="single-user" v-for="(user, index) in contacts" :key="index" :class="index == 0 ? 'active': null" @click="viewConversation(index)">
                 <div class="user-img">
                     <img :src="require(`../assets/img/avatar${user.avatar}.jpg`)" :alt="user.avatar">
                 </div>
@@ -52,6 +52,7 @@
 <script>
 export default {
     name: 'SideBar',
+    props: ['shotMsg'],
     data() {
         return {
             contacts: [
@@ -141,8 +142,12 @@ export default {
     methods: {
         viewConversation(elm) {
             this.$emit("conversation", this.contacts[elm].messages),
-            this.$emit("actualUserImage", this.contacts[elm])
-        }
+            this.$emit("actualUserImage", this.contacts[elm].avatar)
+        },
+        
+        // pushNewMsg() {
+    
+        // }
     }
         }
 </script>
@@ -171,6 +176,13 @@ export default {
             border-radius: 50%;
             margin: 15px 10px 15px 15px;
             // padding: 11px 9px;
+        }
+
+        .text-not-desk {
+            font-size: 12px;
+            color: gray;
+            text-decoration: underline;
+
         }
     }
     
